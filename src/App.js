@@ -1,24 +1,12 @@
-import React from 'react';
 import logo from './logo.svg';
-import './App.css';
-
+import Navbar from './Navbar';
+import './App.css'
+import HomeScreen from './Home';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{heigth:"100%", width:"100%", backgroundColor:'#f6f6f6', flexDirection:'column', display:'flex'}} >
+     <Navbar style={{flex: 2/10}} />
+     <HomeScreen style={{flex: 8/10}} />
     </div>
   );
 }
