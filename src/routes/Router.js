@@ -4,26 +4,22 @@ import {
     Routes
   } from "react-router-dom";
 
-import Users from "../screens/Users";
-import CallsUsers from "../screens/CallsUsers";
-import Navbar from "../components/Navbar";
-import RequestsScreens from "../screens/Requests";
- export const router = createBrowserRouter([
+
+import Navbar from "../Navbar";
+import HomeScreen from "../Home";
+import AboutScreen from "../About";
+export const router = createBrowserRouter([
     {
-      path: "/nav",
+      path: "/",
       element:<Navbar/>,
       children: [
         {
-          path: "users",
-          element: <Users/>,
+          path: "home",
+          element: <HomeScreen/>,
         },
         {
-            path: "callsUsers/:idUser",
-            element: <CallsUsers/>
-          },
-          {
-            path: "requests",
-            element: <RequestsScreens/>
+            path: "about",
+            element: <AboutScreen/>
           }
       ],
     }
