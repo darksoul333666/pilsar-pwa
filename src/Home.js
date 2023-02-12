@@ -19,7 +19,10 @@ const CarouselComponent = () => {
 
 return (
     <Box sx={{flex:1, display:'flex',  width:"80%", margin:'auto', flexDirection:'column'}} >
-        <CarouselComponent/>
+        <CarouselComponent />
+        <Box sx={{flex:1, display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center' }} >
+        <h3>PRODUCTOS DESTACADOS</h3>
+        </Box>
         <Catalog style={{display:'flex'}} />
     </Box>    
 )

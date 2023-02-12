@@ -1,0 +1,9 @@
+
+.item:hover{
+cursor: pointer;
+color:#2fb5d2
+}
+
+.item{
+    color:#7a7a7a;
+};

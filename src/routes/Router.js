@@ -3,11 +3,10 @@ import {
     Route,
     Routes
   } from "react-router-dom";
-
-
 import Navbar from "../Navbar";
 import HomeScreen from "../Home";
 import AboutScreen from "../About";
+import StoreScreen from "../Store";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -16,6 +15,10 @@ export const router = createBrowserRouter([
         {
           path: "home",
           element: <HomeScreen/>,
+        },
+        {
+          path: "store",
+          element: <StoreScreen/>
         },
         {
             path: "about",
