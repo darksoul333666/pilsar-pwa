@@ -3,7 +3,10 @@ import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import './Footer.css';
 import Typography from '@mui/material/Typography';
-
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
  const Footer = () => {
     const products = [
         {name:'Productos en liquidación'},
@@ -32,9 +35,27 @@ import Typography from '@mui/material/Typography';
     }
   return (
     <Box sx={{display:'flex', flex:1,  backgroundColor:'white', flexDirection:'column'}} >
-             <Box sx={{display:'flex', flexDirection:'row', alignItems:'center', width:'80%', margin:'auto', height:140}} >
-             <p style={{width:300}} >Infórmese de nuestras ofertas y noticias
+             <Box sx={{display:'flex', flexDirection:'row',  alignItems:'center', width:'80%', margin:'auto', height:140}} >
+             <p style={{width:300, marginRight:20}} >Infórmese de nuestras ofertas y noticias
                  más recientes...</p>
+                 <div>
+                 <TextField
+                    sx={{maxHeight:40, width:270 }}
+                    size='small'
+                    id="outlined-multiline-flexible"
+                    label={'Su correo electrónico'}
+                    />
+                 <Button style={{fontWeight:900, marginRight:20}} variant="contained">Suscribirse</Button>
+                 </div>
+                 <div style={{flexDirection:'row',  display:'flex'}} > 
+                 <div style={{width:40, height:40}} >
+                 <FacebookIcon sx={{fontSize:40}} />
+                   </div>  
+                   <div style={{width:40, height:40}} >
+                  <InstagramIcon sx={{fontSize:40}} />
+                   </div>  
+                </div>
+                     
             </Box>
             <Box sx={{display:'flex',width:'80%',  flexDirection:'row', margin:'auto', height:300}} >
             <div style={{flex:1}} >

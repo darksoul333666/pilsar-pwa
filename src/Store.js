@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Box from '@mui/material/Box';
 import { Card } from '@mui/material';
 import Catalog from './Catalog';
@@ -11,8 +11,16 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import useScreenSize from './useScreenSize';
 
  const StoreScreen = () => {
+  const {height, width} = useScreenSize();
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    setIsMobile(width < 1000)
+  },[width])
+
   const MenuComponent = () => {
     const categories = [
       {name:'Mobiliario'},{name:'Electrodomésticos'},{name:'Sartenes y ollas'},{name:'Baterías'},
@@ -47,7 +55,7 @@ import Select from '@mui/material/Select';
 
   const SelectComponent = () => {
     return(
-      <FormControl sx={{ m: 1, minWidth: 80, flex:1 }}>
+      <FormControl sx={{ m: 1, minWidth: 80, justifySelf:'center', width: 300 }}>
     <InputLabel id="demo-simple-select-autowidth-label">Relevancia</InputLabel>
     <Select
       labelId="demo-simple-select-autowidth-label"
@@ -67,30 +75,30 @@ import Select from '@mui/material/Select';
   </FormControl>
     )
   };  
+
+
   return (
-     <Box sx={{flex:1, display:'flex',  width:"80%", margin:'auto', flexDirection:'row'}} >
-      
+     <Box sx={{flex:1, display:'flex',  width:isMobile ? "95%": "80%", margin:'auto', flexDirection:isMobile ? 'column': 'row'}} >
       <Box sx={{flex:2, display:'flex' }} >
         <MenuComponent/>
       </Box>
-      <Box sx={{flex:6, display:'flex', flexDirection:'column' }} >
-    
-      <Card style={{ display:'flex', backgroundColor:'white', flexDirection:'column', height:220, marginTop:60}} variant="outlined">
+      <Box sx={{flex:6, display:'flex', width:"100%", flexDirection:'column' }} >
+      <Card style={{ display:'flex', backgroundColor: !isMobile ?'white': "#F7F7F6", 
+      flexDirection:'column', height:220, marginTop:60}} variant="outlined">
       <h2 style={{flex:1, marginLeft:20}} > TIENDA</h2>
       <p style={{flex:4, width:'75%', alignSelf:'center', textAlign:'center' }} > Lo que necesitas para el hogar.
        Encuentra una gran variedad de productos de calidad y al mejor precio.</p>
       </Card>
-      <Box sx={{display:'flex', height:100, flexDirection:'row', alignItems:'center' }} >
-         <div style={{flex:6}} > <p>Hay 136 productos.</p></div>
-         <div style={{flex:4, display:'flex', flexDirection:'row', alignItems:'center' }} >
+      <Box sx={{display:'flex',   }} >
+         <div style={{flex:6 , display:isMobile? 'none': 'flex' }} > <p>Hay 136 productos.</p></div>
+         <div style={{flex:4,  display:'flex', flexDirection:isMobile ?'column' : 'row',   alignItems:!isMobile ? 'center' : null  }} >
           <p>Filtrar por:</p>
-          <SelectComponent/>
+          <div style={{flexDirection:'row',  display:'flex'}} >
+          <SelectComponent style={{ display:'flex', justifyContent:'center',  flexDirection:'row'}} />
+          </div>
          </div>
-
-        </Box>
-      <Box sx={{flex:7, overflow:'scroll', display:'flex', flexDirection:'column' }} >
-          <Catalog/>
-        </Box>
+      </Box>
+      <Box sx={{flex:7, overflow:'scroll' }}> <Catalog isMobile={isMobile} /> </Box>
       </Box>
     </Box>    
   )

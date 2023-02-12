@@ -2,18 +2,37 @@ import React from 'react';
 import { Carousel } from '@trendyol-js/react-carousel';
 import Catalog from './Catalog';
 import Box from '@mui/material/Box';
+import MenuIcon from '@mui/icons-material/Menu';
+import ImageGallery from 'react-image-gallery';
+
 const HomeScreen = () => {
 
 const CarouselComponent = () => {
     return(
-        <Carousel show={1} slide responsive={true}  >
-        <img src={require('./assets/c1.jpeg')} />
-        <img src={require('./assets/c2.jpeg')} />
-        <img src={require('./assets/c3.jpeg')} />
-        <img src={require('./assets/c4.jpeg')} />
-        <img src={require('./assets/c5.jpeg')} />
 
-        </Carousel>
+         <ImageGallery items={[{
+            original: require('./assets/c1.jpeg'),
+          },
+          {
+            original: require('./assets/c2.jpeg'),
+          },
+          {
+            original: require('./assets/c3.jpeg'),
+          },
+          {
+            original: require('./assets/c4.jpeg'),
+          },
+          {
+            original: require('./assets/c5.jpeg'),
+          }
+        ]} 
+          showThumbnails={false}
+          showPlayButton={false}
+          showFullscreenButton={false}
+          />
+
+
+        // </Carousel>
     )
 };
 
