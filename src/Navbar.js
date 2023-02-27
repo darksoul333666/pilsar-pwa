@@ -111,7 +111,7 @@ const Navbar = ({params}) => {
         </div>
         <Tabs value={value} style={{flex:6}} onChange={handleChange} aria-label="basic tabs example">
 
-        <Tab label="Inicio" onClick={() => navigate('/home')}{...a11yProps(0)} />
+        <Tab label="Inicio" onClick={() => navigate('/')}{...a11yProps(0)} />
           <Tab label="Tienda" onClick={() => navigate('/store')}{...a11yProps(1)} />
           <Tab label="Acerca de nosotros" onClick={() => navigate('/about')} {...a11yProps(2)} />
         </Tabs>
@@ -157,7 +157,7 @@ const Navbar = ({params}) => {
     <List style={{flex:1, width:"80%", height:"100%",  marginTop:'20%', margin:"auto"}} >
       <ListItem disablePadding>
           <ListItemButton  onClick={() => {
-            navigate('/home'); 
+            navigate('/'); 
             handleChange('', 0); setMenuOpened(false)}} {...a11yProps(0)} >
           <ListItemText primary={'INICIO'} />
         </ListItemButton>
